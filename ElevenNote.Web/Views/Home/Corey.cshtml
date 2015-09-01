@@ -1,0 +1,25 @@
+﻿<h1>Corey</h1>
+@{
+    var coreyList = new List<string>()
+    {
+
+    };
+
+    for (var i = 1; i <= 100; i++)
+    {
+        if (i % 15 == 0){coreyList.Add("FIZZBUZZ");}
+        else if (i % 3 == 0){coreyList.Add("Fizz");}
+        else if (i % 5 == 0){coreyList.Add("Buzz");}
+        else {coreyList.Add(i.ToString());}
+
+    }
+    
+}
+
+Number of Days Before Killing Enemy:
+<select name="theOption">
+    @foreach (string listString in coreyList)
+    {
+        <option value="@listString">@listString</option>
+    }
+</select>
