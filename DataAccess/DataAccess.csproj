@@ -54,6 +54,19 @@
   <ItemGroup>
     <Compile Include="ElevenNoteApplicationsUser.cs" />
     <Compile Include="ElevenNoteDataContext.cs" />
+    <Compile Include="Migrations\201509012325110_AddedNotesTable.cs" />
+    <Compile Include="Migrations\201509012325110_AddedNotesTable.Designer.cs">
+      <DependentUpon>201509012325110_AddedNotesTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201509020002048_AddedOkayToDeleteTable.cs" />
+    <Compile Include="Migrations\201509020002048_AddedOkayToDeleteTable.Designer.cs">
+      <DependentUpon>201509020002048_AddedOkayToDeleteTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201509020013595_DeletedToDeleteTable.cs" />
+    <Compile Include="Migrations\201509020013595_DeletedToDeleteTable.Designer.cs">
+      <DependentUpon>201509020013595_DeletedToDeleteTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -65,6 +78,17 @@
       <Project>{068bdb0c-b6e1-4742-b828-b4af70ad5bad}</Project>
       <Name>ElevenNote.Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201509012325110_AddedNotesTable.resx">
+      <DependentUpon>201509012325110_AddedNotesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509020002048_AddedOkayToDeleteTable.resx">
+      <DependentUpon>201509020002048_AddedOkayToDeleteTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509020013595_DeletedToDeleteTable.resx">
+      <DependentUpon>201509020013595_DeletedToDeleteTable.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
