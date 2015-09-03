@@ -47,5 +47,62 @@ namespace ElevenNote.Web.Controllers
             }
             return View(model);
         }
+        
+        [HttpGet]
+        [ActionName("Edit")]
+
+        public ActionResult EditGet(int Id)
+        {
+            var noteService = new NoteService();
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var note = noteService.GetById(Id, userId);
+            return View(note);
+        }
+
+        [HttpPost]
+        [ActionName("Edit")]
+        public ActionResult EditPost(NoteEditViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var noteService = new NoteService();
+                var userId = Guid.Parse(User.Identity.GetUserId());
+                var result = noteService.Update(model, userId);
+                TempData.Add("Result", result ? "Note updated." : "Note not updated.");
+                return RedirectToAction("Index");
+            }
+            return View(model);
+        }
+
+        [ActionName("Details")]
+        public ActionResult Details(int Id)
+        {
+                var noteService = new NoteService();
+                var userId = Guid.Parse(User.Identity.GetUserId());
+                var result = noteService.GetById(Id, userId);
+            return View(result);
+        }
+
+        [HttpGet]
+        [ActionName("Delete")]
+
+        public ActionResult Delete(int Id)
+        {
+            var noteService = new NoteService();
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var note = noteService.GetById(Id, userId);
+            return View(note);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        public ActionResult DeletePost(int Id)
+        {
+            var noteService = new NoteService();
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var result = noteService.Delete(Id, userId);
+            TempData.Add("Result", result ? "Note deleted." : "Note not deleted.");
+            return RedirectToAction("Index");
+        }
     }
 }
