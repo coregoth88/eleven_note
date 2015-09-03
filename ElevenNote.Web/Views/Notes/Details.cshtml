@@ -15,11 +15,9 @@
         <dt>
             @Html.DisplayNameFor(model => model.Contents)
         </dt>
-
         <dd>
-            @Html.DisplayFor(model => model.Contents)
+            @Html.Raw(Model.Contents.Replace("<script>", ""))
         </dd>
-
     </dl>
 </div>
 <p>
